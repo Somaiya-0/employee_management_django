@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container" style="max-width: 600px; margin: auto;">
+        <h4 class="text-center mb-4">{{ title }}</h4>
+        <form method="POST" class="needs-validation" novalidate>
+            {% csrf_token %}
+            {% for field in form %}
+                <div class="mb-3">
+                    <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
+                    {{ field }}
+                    {% if field.errors %}
+                        <div class="text-danger small">
+                            {{ field.errors }}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+            <div class="d-flex justify-content-center gap-3">
+              <a href="{% url 'home' %}"  class="btn btn-primary">Save</a>
+                <a href="{% url 'home' %}" class="btn btn-secondary">Cancel</a>
+            </div>
+        </form>
+    </div>
+{% endblock %}

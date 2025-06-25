@@ -1,0 +1,45 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <h4 class="mb-3">{{ form_title }}</h4>
+
+    <form method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label>Name</label>
+            <input type="text" name="name" value="{{ employee.name }}" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label>Email</label>
+            <input type="email" name="email" value="{{ employee.email }}" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label>Position</label>
+            <input type="text" name="position" value="{{ employee.position }}" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label>Department</label>
+            <input type="text" name="department" value="{{ employee.department }}" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label>Phone Number</label>
+            <input type="text" name="number" value="{{ employee.number }}" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label>Blood Group</label>
+            <select name="blood_group" class="form-control" required>
+                <option value="">Select</option>
+                <option value="A+" {% if employee.blood_group == "A+" %}selected{% endif %}>A+</option>
+                <option value="A-" {% if employee.blood_group == "A-" %}selected{% endif %}>A-</option>
+                <option value="B+" {% if employee.blood_group == "B+" %}selected{% endif %}>B+</option>
+                <option value="B-" {% if employee.blood_group == "B-" %}selected{% endif %}>B-</option>
+                <option value="AB+" {% if employee.blood_group == "AB+" %}selected{% endif %}>AB+</option>
+                <option value="AB-" {% if employee.blood_group == "AB-" %}selected{% endif %}>AB-</option>
+                <option value="O+" {% if employee.blood_group == "O+" %}selected{% endif %}>O+</option>
+                <option value="O-" {% if employee.blood_group == "O-" %}selected{% endif %}>O-</option>
+            </select>
+        </div>
+        <a href="{% url 'home' %}" class="btn btn-success">Save</a>
+        <a href="{% url 'home' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+{% endblock %}
