@@ -48,13 +48,14 @@ Access the application at http://127.0.0.1:8000/.
 - **add_employee.html**: Extends `base.html`, form to add a new employee with dropdowns.
 - **update_employee.html**: Extends `base.html`, form to update existing employee details.
 
-##  Notes
+## Notes
 
-- CSRF protection is enabled for logout using a POST request.
-- The logout button redirects users to the login page.
-- The navbar dynamically updates based on login status and current page.
+- Once an employee is deleted, it cannot be restored.
+- All forms have CSRF protection enabled.
+- Hiring date must be entered or pre-filled correctly when adding or updating employees.
+- Blood group is stored as a coded value but displayed as a label.
 
----
+
 
 ##  Author
 
