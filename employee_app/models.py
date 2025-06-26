@@ -32,7 +32,7 @@ class Employee(models.Model):
     phone=models.IntegerField(default=0)
     email=models.CharField(max_length=400,null=True)
     salary=models.IntegerField(default=0)
-    hire_date=models.DateField()
+    hire_date = models.DateField(null=True, blank=True)
 
     def __str__(self):
-        return "%s %s %s %s %s %s %s %s " %(self.name, self.blood_group,self.dept,self.Position, self.phone, self.email, self.salary, self.hire_date)
+        return "%s %s %s %s %s %s %s %s " %(self.name, self.get_blood_group_display(),self.dept,self.Position, self.phone, self.email, self.salary, self.hire_date)

@@ -15,6 +15,7 @@
                 <th>Role</th>
                 <th>Department</th>
                 <th>Salary</th>
+                <th>Hiring Date</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -22,12 +23,13 @@
             {% for emp in emps %}
             <tr>
                 <td>{{ emp.name }}</td>
-                <td>{{ emp.blood_group }}</td>
+                <td>{{ emp.get_blood_group_display }}</td>
                 <td>{{ emp.phone }}</td>
                 <td>{{ emp.email }}</td>
                 <td>{{ emp.Position }}</td>
                 <td>{{ emp.dept }}</td>
                 <td>{{ emp.salary }}</td>
+                <td>{{ emp.hire_date }}</td>
                 <td>
                     <a href="{% url 'update_employee' emp.id %}" class="btn btn-warning btn-sm">Edit</a>
                     <a href="{% url 'delete_employee' emp.id %}" class="btn btn-danger btn-sm">Delete</a>

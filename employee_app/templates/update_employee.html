@@ -1,24 +1,66 @@
 {% extends 'base.html' %}
 {% block content %}
-    <div class="container" style="max-width: 600px; margin: auto;">
-        <h4 class="text-center mb-4">{{ title }}</h4>
-        <form method="POST" class="needs-validation" novalidate>
-            {% csrf_token %}
-            {% for field in form %}
-                <div class="mb-3">
-                    <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
-                    {{ field }}
-                    {% if field.errors %}
-                        <div class="text-danger small">
-                            {{ field.errors }}
-                        </div>
-                    {% endif %}
-                </div>
-            {% endfor %}
-            <div class="d-flex justify-content-center gap-3">
-              <a href="{% url 'home' %}"  class="btn btn-primary">Save</a>
-                <a href="{% url 'home' %}" class="btn btn-secondary">Cancel</a>
-            </div>
-        </form>
-    </div>
+<div class="container" style="max-width: 600px; margin: auto;">
+    <h4 class="text-center mb-4">{{ title }}</h4>
+    <form method="POST" class="needs-validation" novalidate>
+        {% csrf_token %}
+        
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" id="name" name="name" value="{{ employee.name }}" class="form-control" required>
+        </div>
+        
+        <div class="mb-3">
+            <label for="blood_group" class="form-label">Blood Group</label>
+            <select id="blood_group" name="blood_group" class="form-select" required>
+                {% for code, label in blood_groups %}
+                    <option value="{{ code }}" {% if employee.blood_group == code %}selected{% endif %}>{{ label }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="dept" class="form-label">Department</label>
+            <select id="dept" name="dept" class="form-select" required>
+                {% for d in departments %}
+                    <option value="{{ d.id }}" {% if employee.dept.id == d.id %}selected{% endif %}>{{ d.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="Position" class="form-label">Position</label>
+            <select id="Position" name="Position" class="form-select" required>
+                {% for p in roles %}
+                    <option value="{{ p.id }}" {% if employee.Position.id == p.id %}selected{% endif %}>{{ p.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="phone" class="form-label">Phone</label>
+            <input type="number" id="phone" name="phone" value="{{ employee.phone }}" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" id="email" name="email" value="{{ employee.email }}" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="salary" class="form-label">Salary</label>
+            <input type="number" id="salary" name="salary" value="{{ employee.salary }}" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="hire_date" class="form-label">Hire Date</label>
+            <input type="date" id="hire_date" name="hire_date" value="{{ employee.hire_date|date:'Y-m-d' }}" class="form-control" required>
+        </div>
+
+        <div class="d-flex justify-content-center gap-3">
+            <button type="submit" class="btn btn-primary">Save</button>
+            <a href="{% url 'home' %}" class="btn btn-secondary">Cancel</a>
+        </div>
+    </form>
+</div>
 {% endblock %}

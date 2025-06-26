@@ -15,12 +15,24 @@
         </div>
         <div class="mb-3">
             <label>Position</label>
-            <input type="text" name="Position" value="{{ employee.Position }}" class="form-control" required>
+            <select name="Position" class="form-control" required>
+                <option value="">Select Position</option>
+                {% for r in roles %}
+                    <option value="{{ r.id }}">{{ r.name }}</option>
+                {% endfor %}
+            </select>
         </div>
+
         <div class="mb-3">
             <label>Department</label>
-            <input type="text" name="dept" value="{{ employee.dept }}" class="form-control" required>
+            <select name="dept" class="form-control" required>
+                <option value="">Select Department</option>
+                {% for d in departments %}
+                    <option value="{{ d.id }}">{{ d.name }}</option>
+                {% endfor %}
+            </select>
         </div>
+
         <div class="mb-3">
             <label>Phone Number</label>
             <input type="text" name="phone" value="{{ employee.phone }}" class="form-control" required>
