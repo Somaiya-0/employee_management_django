@@ -57,11 +57,11 @@ Access the application at http://127.0.0.1:8000/.
 
 
 
-##  Author
+## Author
 
-Somaiya-0
+[Somaiya-0](https://github.com/Somaiya-0)
 
----
+
 
 ##  License
 
