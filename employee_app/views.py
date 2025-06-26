@@ -1,6 +1,6 @@
 from django.shortcuts import redirect, render,HttpResponse,get_object_or_404
 from .models import Department,role,Employee
-from datetime import date
+from datetime import datetime,date
 
 # Create your views here.
 def home(request):
