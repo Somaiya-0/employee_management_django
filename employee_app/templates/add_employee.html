@@ -3,7 +3,7 @@
 {% block content %}
     <h4 class="mb-3">{{ form_title }}</h4>
 
-    <form method="post">
+    <form method="POST">
         {% csrf_token %}
         <div class="mb-3">
             <label>Name</label>
@@ -15,15 +15,23 @@
         </div>
         <div class="mb-3">
             <label>Position</label>
-            <input type="text" name="position" value="{{ employee.position }}" class="form-control" required>
+            <input type="text" name="Position" value="{{ employee.Position }}" class="form-control" required>
         </div>
         <div class="mb-3">
             <label>Department</label>
-            <input type="text" name="department" value="{{ employee.department }}" class="form-control" required>
+            <input type="text" name="dept" value="{{ employee.dept }}" class="form-control" required>
         </div>
         <div class="mb-3">
             <label>Phone Number</label>
-            <input type="text" name="number" value="{{ employee.number }}" class="form-control" required>
+            <input type="text" name="phone" value="{{ employee.phone }}" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label>Salary</label>
+            <input type="text" name="salary" value="{{ employee.salary }}" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label>Hiring Date</label>
+            <input type="date" name="hire_date" value="{{ employee.hire_date }}" class="form-control" required>
         </div>
         <div class="mb-3">
             <label>Blood Group</label>
@@ -39,7 +47,7 @@
                 <option value="O-" {% if employee.blood_group == "O-" %}selected{% endif %}>O-</option>
             </select>
         </div>
-        <a href="{% url 'home' %}" class="btn btn-success">Save</a>
+        <button type="submit" class="btn btn-success">Save</button>
         <a href="{% url 'home' %}" class="btn btn-secondary">Cancel</a>
     </form>
 {% endblock %}
