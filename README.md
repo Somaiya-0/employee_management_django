@@ -12,7 +12,7 @@ A Django-based web application designed to manage employee records efficiently. 
 
 
 ##  Project View
-![Screenshot](employee_app/Screenshot.png)
+![Screenshot](employee_app/Project_Screenshot.png)
 
 ## How to Run
 
@@ -28,14 +28,29 @@ A Django-based web application designed to manage employee records efficiently. 
     python -m venv venv
     source venv/bin/activate  
     # On Windows use `venv\Scripts\activate`
-3. Install Django
+3. Install Dependencies
     ```bash
     pip install django
-4. Run migrations:  
+    pip install mysqlclient
+4. Configure MySQL Database in settings.py
+    ```bash
+        DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'your_db_name',
+            'USER': 'your_mysql_user',
+            'PASSWORD': 'your_password',
+            'HOST': 'localhost',
+            'PORT': '3306',
+        }
+    }
+
+5. Run migrations:  
 
    ```bash
+   python manage.py makemigrations employee_app
    python manage.py migrate
-5. Run server:
+6. Run server:
     ```bash
     python manage.py runserver
 Access the application at http://127.0.0.1:8000/.
