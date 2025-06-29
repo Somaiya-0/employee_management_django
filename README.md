@@ -73,8 +73,7 @@ Access the application at http://127.0.0.1:8000/.
 
 - Once an employee is deleted, it cannot be restored.
 - All forms have CSRF protection enabled.
-- Hiring date must be entered or pre-filled correctly when adding or updating employees.
-- Blood group is stored as a coded value but displayed as a label.
+
 
 
 
