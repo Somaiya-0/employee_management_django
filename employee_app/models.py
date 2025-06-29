@@ -29,7 +29,7 @@ class Employee(models.Model):
     blood_group=models.CharField(max_length=3,choices=blood_c)
     dept=models.ForeignKey(Department, on_delete=models.CASCADE)
     Position=models.ForeignKey(role, on_delete=models.CASCADE)
-    phone=models.IntegerField(default=0)
+    phone=models.CharField(max_length=150)
     email=models.CharField(max_length=400,null=True)
     salary=models.IntegerField(default=0)
     hire_date = models.DateField(null=True, blank=True)

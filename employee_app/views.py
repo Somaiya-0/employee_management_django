@@ -21,7 +21,7 @@ def add_employee(request):
         dept= int(request.POST['dept'])
         blood_group= request.POST['blood_group']
         salary= int(request.POST['salary'])
-        phone= int(request.POST['phone'])
+        phone= request.POST['phone']
 
         employee= Employee(name=name, email=email, Position_id = Position, dept_id=dept, blood_group=blood_group, salary= salary, hire_date=date.today(), phone=phone)
         employee.save()
@@ -51,7 +51,7 @@ def update_employee(request, emp_id):
     if request.method == 'POST':
         employee.name = request.POST.get('name')
         employee.email = request.POST.get('email')
-        employee.phone = int(request.POST.get('phone', 0))
+        employee.phone= request.POST['phone']
         employee.salary = int(request.POST.get('salary', 0))
         hire_date_str = request.POST.get('hire_date')
         if hire_date_str:

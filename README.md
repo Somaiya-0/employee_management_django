@@ -10,6 +10,10 @@ A Django-based web application designed to manage employee records efficiently. 
 - **Responsive UI**: Built with Bootstrap for a clean and responsive design.
 - **SQLite Database**: Utilizes SQLite for data storage.
 
+
+##  Project View
+![Screenshot](employee_app/Screenshot.png)
+
 ## How to Run
 
 1. **Clone the Repository**
@@ -24,12 +28,14 @@ A Django-based web application designed to manage employee records efficiently. 
     python -m venv venv
     source venv/bin/activate  
     # On Windows use `venv\Scripts\activate`
-
-3. Run migrations:  
+3. Install Django
+    ```bash
+    pip install django
+4. Run migrations:  
 
    ```bash
    python manage.py migrate
-4. Run migrations:
+5. Run server:
     ```bash
     python manage.py runserver
 Access the application at http://127.0.0.1:8000/.
