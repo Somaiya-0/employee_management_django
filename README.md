@@ -8,7 +8,7 @@ A Django-based web application designed to manage employee records efficiently. 
 - **Department & Role Management**: Assign employees to departments and roles.
 - **Blood Group Selection**: Choose from predefined blood groups using a dropdown.
 - **Responsive UI**: Built with Bootstrap for a clean and responsive design.
-- **SQLite Database**: Utilizes SQLite for data storage.
+-  **MySQL Database**: Uses MySQL for robust and scalable data storage. 
 
 
 ##  Project View
